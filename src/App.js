@@ -6,6 +6,7 @@ import Courses from './component/Pages/Courses/Courses';
 import Login from './component/Pages/Login/Login';
 import Registration from './component/Pages/Registration/Registration';
 import Blog from './component/Pages/Blog/Blog';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const router= createBrowserRouter([
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="">
        <RouterProvider router={router}></RouterProvider>
+       <Toaster></Toaster>
     </div>
   );
 }

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProviderContext';
 
 const Courses = () => {
+    const {user}=useContext(AuthContext)
     return (
         <div>
-            <h1>This is course Page</h1>
+            {
+                user?.emailVerified?
+                <h1>This is course Page</h1>
+                :
+                <h1>Email is not varyfied sorry to access</h1>
+            }
+           
         </div>
     );
 };
