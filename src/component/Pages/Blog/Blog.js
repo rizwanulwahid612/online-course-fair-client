@@ -40,7 +40,7 @@ const Blog = () => {
         <div id="example-fade-text3" style={{marginLeft:'100px',marginRight:'10px'}}>
         Firebase helps you develop high-quality apps, grow your user base, and earn more money. Each feature works independently, and they work even better together.
         Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
-        Biometric Authentication Methods. Biometric authentication relies on the unique biological traits of a user in order to verify their identity. This makes biometrics one of the most secure authentication methods as of today.
+        Biometric Authentication Methods. 
         </div>
       </Fade>
         </div>
