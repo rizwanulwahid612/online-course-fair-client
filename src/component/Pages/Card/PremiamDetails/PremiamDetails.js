@@ -3,8 +3,11 @@ import { Button, Card, Container } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import Chackout from '../Chackout/Chackout';
 import './PremiamDetails.css'
+import ReactPrint from 'react-to-print'
+import {useRef} from 'react';
 
 const PremiamDetails = () => {
+    const ref =useRef()
     const loadeData= useLoaderData();
     
     const [checkoutDetails,setCheckoutDetails]=useState([])
@@ -17,10 +20,20 @@ const PremiamDetails = () => {
        setCheckoutDetails(cart)
     }
 
+    
+
     return (
-        <Container style={{gap:'20px'}}>
+      
+        <Container style={{gap:'20px'}} ref={ref}>
+             
         <div>
+        
+            {/* <div className='print'>
+
+
+            </div> */}
             <div >
+            <ReactPrint trigger={()=><Button style={{backgroundColor:'red'}}>Download Pdf</Button>} content={()=>ref.current}/>
             <Card className='premiam' style={{ width: '24rem' ,marginLeft:'25px', marginBottom:'30px',borderRadius:'20px' }}>
                             <Card.Img variant="top" src={loadeData.image_url} />
                             <Card.Body>
@@ -51,7 +64,9 @@ const PremiamDetails = () => {
                  
                         
     </div>
+    
     <div style={{backgroundColor:'yellow',padding:'15px'}}>
+   
                 <h1>Details</h1>
                 <p>Course Name: {checkoutDetails.title}</p> 
                 <p>Course Price: {checkoutDetails.price}</p>
