@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProviderContext';
+import Header from '../../Navbar/Header/Header';
 
 const Registration = () => {
     const [error,setError]=useState('')
@@ -19,10 +20,21 @@ const Registration = () => {
         const email = form.email.value;
         const password= form.password.value;
         console.log(name,photoURL,email,password)
+        if(password.length<6){
+          setError('Atleast 6 charecter');
+          return;
+     }
+ 
+  if (!/(?=.*[!@#$&*])/.test(password)) {
+    setError('Ensure string has one special case letter')
+      return;
+  }
         userRegistration(email,password)
         .then((result) => {
           const user = result.user;
           console.log(user)
+         
+
           handleEmailVarification()
           handleUpdateProfile(name,photoURL)
           form.reset('')
@@ -54,7 +66,10 @@ const Registration = () => {
       
     
         return (
-            <Form onSubmit={handleSubmit} className='mx-auto' style={{marginTop:'80px'}}>
+          <div>
+            <Header></Header>
+          
+            <Form onSubmit={handleSubmit} className='mx-auto w-50' style={{marginTop:'80px'}}>
                 <h1>Please Registration</h1>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -74,7 +89,7 @@ const Registration = () => {
               <Form.Label>Password</Form.Label>
               <Form.Control name='password' type="password" placeholder="Password" />
             </Form.Group>
-            {error}
+            <p style={{color:'red'}}>{error}</p>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
 
             <Form.Check onClick={()=>setDisable(!disable)} type="checkbox" label="Are you sure to register your account?" />
@@ -89,6 +104,7 @@ const Registration = () => {
               Register
             </Button>
           </Form>
+          </div>
         );
     };
 

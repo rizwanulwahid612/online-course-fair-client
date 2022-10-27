@@ -1,29 +1,20 @@
-import './App.css';
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
-import Main from './component/Layout/Main/Main';
-import Home from './component/Pages/Home/Home';
-import Courses from './component/Pages/Courses/Courses';
-import Login from './component/Pages/Login/Login';
-import Registration from './component/Pages/Registration/Registration';
-import Blog from './component/Pages/Blog/Blog';
+ import './App.css';
+// import './Styles.css'
 import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './component/UserRouter/Router';
+import { useState } from 'react';
 
 function App() {
-  const router= createBrowserRouter([
-    {path:'/',element:<Main></Main>,children:[
-      {path:'/',element:<Home></Home>},
-      {path:'/courses',element:<Courses></Courses>},
-      {path:'/login',element:<Login></Login>},
-      {path:'/register',element:<Registration></Registration>},
-      {path:'/blog',element:<Blog></Blog>}
-    ]}
   
-  ])
+
   return (
-    <div className="">
+   <div className=''>
+
        <RouterProvider router={router}></RouterProvider>
-       <Toaster></Toaster>
-    </div>
+     <Toaster></Toaster>
+  </div>
+   
   );
 }
 
