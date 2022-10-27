@@ -11,10 +11,11 @@ const Footer = () => {
         <blockquote className="blockquote mb-0">
           <p className='App' style={{color:'white'}}>
            
-            Footer side
+            Online Courses
           </p>
+          
           <footer className="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
+             <cite style={{color:'white'}} title="Source Title">Footer Copy-2022</cite>
           </footer>
         </blockquote>
       </Card.Body>
