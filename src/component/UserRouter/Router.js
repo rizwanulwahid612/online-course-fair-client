@@ -19,15 +19,15 @@ export const router= createBrowserRouter([
     {path:'/',element:<Main></Main>,children:[
       
       {path:'/courses',element:<Courses></Courses>,
-      loader:()=>fetch('http://localhost:5000/categories')},
+      loader:()=>fetch('https://server-site-rizwanulwahid612.vercel.app/categories')},
       
       {path:'/categories/:Id',element:<CourseCard></CourseCard>,
-      loader:({params})=>fetch(`http://localhost:5000/categories/${params.Id}`)
+      loader:({params})=>fetch(`https://server-site-rizwanulwahid612.vercel.app/categories/${params.Id}`)
       
     },
     {path:'/checkout',element:<PrivateRouter><Chackout></Chackout></PrivateRouter>},
     {path:'/cours/:id',element:<PrivateRouter><PremiamDetails></PremiamDetails></PrivateRouter>,
-     loader:({params})=>fetch(`http://localhost:5000/cours/${params.id}`)
+     loader:({params})=>fetch(`https://server-site-rizwanulwahid612.vercel.app/cours/${params.id}`)
   }
     ]},
     {path:'/',element:<Home></Home>},
